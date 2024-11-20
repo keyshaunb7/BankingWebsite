@@ -1,40 +1,282 @@
-body {
-    font-family: Arial, sans-serif;
+/* ==========================
+   RESET & BASE STYLES
+========================== */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-header, footer {
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ==========================
+   LAYOUT
+========================== */
+header {
+    background-color: #004080;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header nav ul {
+    display: inline-flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ff9900;
+}
+
+footer {
     background-color: #004080;
     color: white;
     text-align: center;
     padding: 10px 0;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 15px;
+    margin-top: 30px;
 }
 
 main {
-    text-align: center;
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.button {
+main h1 {
+    text-align: center;
+    color: #004080;
+    margin-bottom: 20px;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+button,
+.btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #004080;
+    font-size: 1rem;
     color: white;
-    text-decoration: none;
+    background-color: #004080;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #003060;
+    transform: scale(1.05);
+}
+
+button:focus,
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 64, 128, 0.7);
+}
+
+button[disabled],
+.btn[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #e6f2ff;
+    background-size: cover;
+    background-position: center;
+    color: #004080;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    margin-top: 20px;
+}
+
+/* ==========================
+   FEATURES SECTION
+========================== */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 20px;
+    background-color: #f9f9f9;
+    flex-wrap: wrap;
+}
+
+.features .feature {
+    width: 30%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.features .feature h2 {
+    color: #004080;
+    margin-bottom: 10px;
+}
+
+.features .feature p {
+    font-size: 0.9rem;
+}
+
+/* ==========================
+   FORMS
+========================== */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-.button:hover {
-    background-color: #003060;
+form label {
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #004080;
+}
+
+form button {
+    align-self: flex-start;
+}
+
+/* ==========================
+   FAQ SECTION
+========================== */
+.faq {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.question {
+    font-weight: bold;
+    cursor: pointer;
+    color: #004080;
+    transition: color 0.3s ease;
+}
+
+.question:hover {
+    color: #003060;
+}
+
+.answer {
+    display: none;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.answer p {
+    margin: 0;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+========================== */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features .feature {
+        width: 90%;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    .faq {
+        width: 90%;
+    }
 }
